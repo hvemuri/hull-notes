@@ -1,0 +1,316 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ch7</title>
+  <link rel="stylesheet" href="https://stackedit.io/style.css" />
+</head>
+
+<body class="stackedit">
+  <div class="stackedit__left">
+    <div class="stackedit__toc">
+      
+<ul>
+<li><a href="#ch-7-swaps">Ch 7 Swaps</a>
+<ul>
+<li><a href="#mechanics-of-interest-rate-swaps">Mechanics of Interest Rate Swaps</a>
+<ul>
+<li></li>
+</ul>
+</li>
+<li><a href="#day-count-issues">Day Count Issues</a></li>
+<li><a href="#confirmations">Confirmations</a></li>
+<li><a href="#the-comparative-advantage-argument">The Comparative-Advantage Argument</a>
+<ul>
+<li></li>
+</ul>
+</li>
+<li><a href="#the-nature-of-swap-rates">The Nature of Swap Rates</a></li>
+<li><a href="#determining-liborswap-zero-rates">Determining LIBOR/Swap Zero Rates</a></li>
+<li><a href="#valuation-of-interest-rate-swaps">Valuation of Interest Rate Swaps</a>
+<ul>
+<li></li>
+</ul>
+</li>
+<li><a href="#term-structure-effects">Term Structure Effects</a></li>
+<li><a href="#fixed-for-fixed-currency-swaps">Fixed-for-Fixed Currency Swaps</a>
+<ul>
+<li></li>
+</ul>
+</li>
+<li><a href="#valuation-of-fixed-for-fixed-currency-swaps">Valuation of Fixed-for-Fixed Currency Swaps</a>
+<ul>
+<li></li>
+</ul>
+</li>
+<li><a href="#other-currency-swaps">Other Currency Swaps</a></li>
+<li><a href="#credit-risk">Credit Risk</a>
+<ul>
+<li></li>
+</ul>
+</li>
+<li><a href="#other-types-of-swaps">Other Types of Swaps</a>
+<ul>
+<li></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+    </div>
+  </div>
+  <div class="stackedit__right">
+    <div class="stackedit__html">
+      <h1 id="ch-7-swaps">Ch 7 Swaps</h1>
+<p>swap - an OTC agreement between two companies to exchange cash flows in the future</p>
+<ul>
+<li>defines the dates when the cash flows are to be paid</li>
+<li>defines the way in which the cash flows are to be calculated</li>
+</ul>
+<p>Forward contract can be viewed as a swap, with a cash flow exchange on just one future date.</p>
+<p>Swaps make up a majority of the OTC derivate market.</p>
+<ul>
+<li>most popular (plan vanilla) interest rate swap is where LIBOR is exchanged for a fixed rate of interest</li>
+<li>valuing swaps requires a “risk-free” discount rate for cash flows<br>
+– LIBOR is often used as proxy for the risk-free discount rate</li>
+</ul>
+<h2 id="mechanics-of-interest-rate-swaps">Mechanics of Interest Rate Swaps</h2>
+<p>interest rate swap - one company agrees to pay another company cash flows at a fixed rate and receives interest at a floating rate on some notional principal for a given time period</p>
+<h4 id="libor">LIBOR</h4>
+<ul>
+<li>LIBOR is the floating rate in most interest rate swap agreements</li>
+<li>floating-rate payments on a payment date are calculated using the floating rate prevailing at the start of the payment period<br>
+– for example if the payment period is 6 months then use the rate 6 months prior to the payment date</li>
+<li>the principal amount (<em>notional</em>) is used only for calculation of interest payments and is itself not exchanged</li>
+</ul>
+<p>This type of swap can be regarded as exchanging a fixed-rate bond for a floating-rate bond.</p>
+<h4 id="using-the-swap-to-transform-a-liability">Using the Swap to Transform a Liability</h4>
+<p>Swaps can be used to transform a floating-rate loan into a fixed-rate loan.</p>
+<p>Original: Pay LIBOR plus 0.1%. (floating-rate)<br>
+Swap: Receive LIBOR and pay fixed rate 5%. (transformation)<br>
+Result: Pay fixed rate of 5.1%. (fixed-rate)</p>
+<p>Swaps can be used to transform a fixed-rate loan into a floating-rate loan.</p>
+<p>Original: Pay fixed rate of 5.2%. (fixed-rate)<br>
+Swap: Pay LIBOR and receive fixed rate of 5%. (transformation)<br>
+Result: Pay LIBOR plus 0.2%. (floating-rate)</p>
+<h4 id="using-the-swap-to-transform-an-asset">Using the Swap to Transform an Asset</h4>
+<p>Swaps can be used to transform an asset earning fixed-rate into an asset earning floating-rate.</p>
+<p>Original: Own $100m bonds providing interest at 4.7%. (fixed-rate)<br>
+Swap: Receive LIBOR and pay 5%. (transformation)<br>
+Result: Receive LIBOR - 0.3%. (floating-rate)</p>
+<p>Swaps can be used to transform an asset earning floating-rate into an asset earning fixed-rate.</p>
+<p>Original: Invest $100m yielding LIBOR - 0.2%. (floating-rate)<br>
+Swap: Pay LIBOR and receive 5%. (transformation)<br>
+Result: Receive 4.8%. (fixed-rate)</p>
+<h4 id="role-of-financial-intermediary">Role of Financial Intermediary</h4>
+<ul>
+<li>financial institution enters into two offsetting swap transactions with the swap counterparties</li>
+<li>typically profit 3-4 basis points if neither party defaults<br>
+– compensation for risk that one of the two companies may default on the swap payments</li>
+</ul>
+<h4 id="market-makers">Market Makers</h4>
+<ul>
+<li>unlikely that two companies contact a financial institution at the same time to take opposite position in exactly the same swap</li>
+<li>financial institutions act as market makers<br>
+– enter into a swap without having an offsetting swap with another counterparty</li>
+</ul>
+<h2 id="day-count-issues">Day Count Issues</h2>
+<ul>
+<li>day count conventions affect payments on a swap</li>
+<li>fixed payments may not be exactly equal on each payment date</li>
+</ul>
+<h2 id="confirmations">Confirmations</h2>
+<p>confirmation - legal agreement underlying a swap, signed by representatives of the two parties</p>
+<ul>
+<li>defines terminology used in swap agreements</li>
+<li>specifies what happens if either side defaults</li>
+<li>specifies which days are business days and which days are holidays<br>
+– payment date on a weekend or holiday means payment is made on next business day</li>
+</ul>
+<h2 id="the-comparative-advantage-argument">The Comparative-Advantage Argument</h2>
+<p>The popularity of swaps can be explained by comparative advantage. Some companies have a comparative advantage when borrowing in fixed-rate markets and other companies have a comparative advantage when borrowing in floating-rate markets. This can arise due to differences in credit ratings.</p>
+<h4 id="criticism-of-the-argument">Criticism of the Argument</h4>
+<p>Why have the differences not been arbitraged away?</p>
+<ul>
+<li>fixed-rate loans are given, for example, for 5 years</li>
+<li>floating-rate loans are given, for example, for 6 months<br>
+– lender can reassess creditworthiness of borrower every 6 months</li>
+</ul>
+<h2 id="the-nature-of-swap-rates">The Nature of Swap Rates</h2>
+<p>A financial institution can earn the 5-year swap rate by:</p>
+<ol>
+<li>Lend principal for first 6 months to an AA borrower and then relend it for successive 6-month periods to other AA borrowers</li>
+<li>Enter into a swap to exchange LIBOR for the 5-year swap rate</li>
+</ol>
+<p>Note that 5-year swap rates are less than 5-year AA borrowing rates. The difference is in lending money for successive 6-month periods to borrowers who are always AA at the beginning of the period rather than lending to one borrower for the whole 5 years.</p>
+<p>Swap rates are therefore sometimes called “continually refreshed” LIBOR rates.</p>
+<h2 id="determining-liborswap-zero-rates">Determining LIBOR/Swap Zero Rates</h2>
+<p>A problem with LIBOR rates is that direct observations are possible only for maturities out to 12 months. Eurodollar futures are used to extend the LIBOR zero curve beyond 12 months, usually out to 2 years. Swap rates can be used to further extend the LIBOR zero curve. The result is the <em>LIBOR/swap zero curve</em>.</p>
+<h2 id="valuation-of-interest-rate-swaps">Valuation of Interest Rate Swaps</h2>
+<p>An interest rate swap is worth close to zero at initiation.<br>
+The value becomes positive or negative over time.</p>
+<p>There are two valuation approaches:</p>
+<ol>
+<li>Regard the swap as the difference between two bonds</li>
+<li>Regard the swap as a portfolio of FRAs</li>
+</ol>
+<h4 id="valuation-in-terms-of-bond-prices">Valuation in Terms of Bond Prices</h4>
+<p>Principal payments are not exchanged in an interest rate swap.<br>
+However, assuming that principal payments are both received and paid at the end of the swap does not change the value of the swap.</p>
+<p>From the point-of-view of the floating-rate payer, a swap is a long position in a fixed-rate bond and a short position in a floating-rate bond <span class="katex--display"><span class="katex-display"><span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>V</mi><mtext>swap</mtext></msub><mo>=</mo><msub><mi>B</mi><mtext>fix</mtext></msub><mo>−</mo><msub><mi>B</mi><mtext>fl</mtext></msub></mrow><annotation encoding="application/x-tex">V_{\text{swap}} = B_{\text{fix}} - B_{\text{fl}}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height: 0.969438em; vertical-align: -0.286108em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right: 0.22222em;">V</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height: 0.151392em;"><span class="" style="top: -2.55em; margin-left: -0.22222em; margin-right: 0.05em;"><span class="pstrut" style="height: 2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord text mtight"><span class="mord mtight">swap</span></span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height: 0.286108em;"><span class=""></span></span></span></span></span></span><span class="mspace" style="margin-right: 0.277778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right: 0.277778em;"></span></span><span class="base"><span class="strut" style="height: 0.83333em; vertical-align: -0.15em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right: 0.05017em;">B</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height: 0.336108em;"><span class="" style="top: -2.55em; margin-left: -0.05017em; margin-right: 0.05em;"><span class="pstrut" style="height: 2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord text mtight"><span class="mord mtight">fix</span></span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height: 0.15em;"><span class=""></span></span></span></span></span></span><span class="mspace" style="margin-right: 0.222222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right: 0.222222em;"></span></span><span class="base"><span class="strut" style="height: 0.83333em; vertical-align: -0.15em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right: 0.05017em;">B</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height: 0.336108em;"><span class="" style="top: -2.55em; margin-left: -0.05017em; margin-right: 0.05em;"><span class="pstrut" style="height: 2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord text mtight"><span class="mord mtight">fl</span></span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height: 0.15em;"><span class=""></span></span></span></span></span></span></span></span></span></span></span></p>
+<p>From the point-of-view of the fixed-rate payer, a swap is a long position in a floating-rate bond and a short position in a fixed-rate bond <span class="katex--display"><span class="katex-display"><span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>V</mi><mtext>swap</mtext></msub><mo>=</mo><msub><mi>B</mi><mtext>fl</mtext></msub><mo>−</mo><msub><mi>B</mi><mtext>fix</mtext></msub></mrow><annotation encoding="application/x-tex">V_{\text{swap}} = B_{\text{fl}} - B_{\text{fix}}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height: 0.969438em; vertical-align: -0.286108em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right: 0.22222em;">V</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height: 0.151392em;"><span class="" style="top: -2.55em; margin-left: -0.22222em; margin-right: 0.05em;"><span class="pstrut" style="height: 2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord text mtight"><span class="mord mtight">swap</span></span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height: 0.286108em;"><span class=""></span></span></span></span></span></span><span class="mspace" style="margin-right: 0.277778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right: 0.277778em;"></span></span><span class="base"><span class="strut" style="height: 0.83333em; vertical-align: -0.15em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right: 0.05017em;">B</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height: 0.336108em;"><span class="" style="top: -2.55em; margin-left: -0.05017em; margin-right: 0.05em;"><span class="pstrut" style="height: 2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord text mtight"><span class="mord mtight">fl</span></span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height: 0.15em;"><span class=""></span></span></span></span></span></span><span class="mspace" style="margin-right: 0.222222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right: 0.222222em;"></span></span><span class="base"><span class="strut" style="height: 0.83333em; vertical-align: -0.15em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right: 0.05017em;">B</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height: 0.336108em;"><span class="" style="top: -2.55em; margin-left: -0.05017em; margin-right: 0.05em;"><span class="pstrut" style="height: 2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord text mtight"><span class="mord mtight">fix</span></span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height: 0.15em;"><span class=""></span></span></span></span></span></span></span></span></span></span></span></p>
+<p>Let the notional principal be <span class="katex--inline"><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>L</mi></mrow><annotation encoding="application/x-tex">L</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height: 0.68333em; vertical-align: 0em;"></span><span class="mord mathdefault">L</span></span></span></span></span>, the next exchange of payments be at time <span class="katex--inline"><span class="katex"><span class="katex-mathml"><math><semantics><mrow><msup><mi>t</mi><mo>∗</mo></msup></mrow><annotation encoding="application/x-tex">t^*</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height: 0.688696em; vertical-align: 0em;"></span><span class="mord"><span class="mord mathdefault">t</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height: 0.688696em;"><span class="" style="top: -3.063em; margin-right: 0.05em;"><span class="pstrut" style="height: 2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mbin mtight">∗</span></span></span></span></span></span></span></span></span></span></span></span>, and the floating payment made at time <span class="katex--inline"><span class="katex"><span class="katex-mathml"><math><semantics><mrow><msup><mi>t</mi><mo>∗</mo></msup></mrow><annotation encoding="application/x-tex">t^*</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height: 0.688696em; vertical-align: 0em;"></span><span class="mord"><span class="mord mathdefault">t</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height: 0.688696em;"><span class="" style="top: -3.063em; margin-right: 0.05em;"><span class="pstrut" style="height: 2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mbin mtight">∗</span></span></span></span></span></span></span></span></span></span></span></span> be <span class="katex--inline"><span class="katex"><span class="katex-mathml"><math><semantics><mrow><msup><mi>k</mi><mo>∗</mo></msup></mrow><annotation encoding="application/x-tex">k^*</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height: 0.69444em; vertical-align: 0em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right: 0.03148em;">k</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height: 0.688696em;"><span class="" style="top: -3.063em; margin-right: 0.05em;"><span class="pstrut" style="height: 2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mbin mtight">∗</span></span></span></span></span></span></span></span></span></span></span></span>. Immediately after the payment, <span class="katex--inline"><span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>B</mi><mtext>fl</mtext></msub><mo>=</mo><mi>L</mi></mrow><annotation encoding="application/x-tex">B_{\text{fl}} = L</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height: 0.83333em; vertical-align: -0.15em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right: 0.05017em;">B</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height: 0.336108em;"><span class="" style="top: -2.55em; margin-left: -0.05017em; margin-right: 0.05em;"><span class="pstrut" style="height: 2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord text mtight"><span class="mord mtight">fl</span></span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height: 0.15em;"><span class=""></span></span></span></span></span></span><span class="mspace" style="margin-right: 0.277778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right: 0.277778em;"></span></span><span class="base"><span class="strut" style="height: 0.68333em; vertical-align: 0em;"></span><span class="mord mathdefault">L</span></span></span></span></span>. (Note that the bond is worth the notional principal immediately after a payment because at this time the bond is a “fair deal”.) This means that immediately before the payment, <span class="katex--inline"><span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>B</mi><mtext>fl</mtext></msub><mo>=</mo><mi>L</mi><mo>+</mo><msup><mi>k</mi><mo>∗</mo></msup></mrow><annotation encoding="application/x-tex">B_{\text{fl}} = L + k^*</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height: 0.83333em; vertical-align: -0.15em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right: 0.05017em;">B</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height: 0.336108em;"><span class="" style="top: -2.55em; margin-left: -0.05017em; margin-right: 0.05em;"><span class="pstrut" style="height: 2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord text mtight"><span class="mord mtight">fl</span></span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height: 0.15em;"><span class=""></span></span></span></span></span></span><span class="mspace" style="margin-right: 0.277778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right: 0.277778em;"></span></span><span class="base"><span class="strut" style="height: 0.76666em; vertical-align: -0.08333em;"></span><span class="mord mathdefault">L</span><span class="mspace" style="margin-right: 0.222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right: 0.222222em;"></span></span><span class="base"><span class="strut" style="height: 0.69444em; vertical-align: 0em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right: 0.03148em;">k</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height: 0.688696em;"><span class="" style="top: -3.063em; margin-right: 0.05em;"><span class="pstrut" style="height: 2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mbin mtight">∗</span></span></span></span></span></span></span></span></span></span></span></span>. Regard the floating-rate bond as providing a single cash flow of <span class="katex--inline"><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>L</mi><mo>+</mo><msup><mi>k</mi><mo>∗</mo></msup></mrow><annotation encoding="application/x-tex">L + k^*</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height: 0.76666em; vertical-align: -0.08333em;"></span><span class="mord mathdefault">L</span><span class="mspace" style="margin-right: 0.222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right: 0.222222em;"></span></span><span class="base"><span class="strut" style="height: 0.69444em; vertical-align: 0em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right: 0.03148em;">k</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height: 0.688696em;"><span class="" style="top: -3.063em; margin-right: 0.05em;"><span class="pstrut" style="height: 2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mbin mtight">∗</span></span></span></span></span></span></span></span></span></span></span></span> at time <span class="katex--inline"><span class="katex"><span class="katex-mathml"><math><semantics><mrow><msup><mi>t</mi><mo>∗</mo></msup></mrow><annotation encoding="application/x-tex">t^*</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height: 0.688696em; vertical-align: 0em;"></span><span class="mord"><span class="mord mathdefault">t</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height: 0.688696em;"><span class="" style="top: -3.063em; margin-right: 0.05em;"><span class="pstrut" style="height: 2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mbin mtight">∗</span></span></span></span></span></span></span></span></span></span></span></span>. Discount this to present value of <span class="katex--inline"><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo stretchy="false">(</mo><mi>L</mi><mo>+</mo><msup><mi>k</mi><mo>∗</mo></msup><mo stretchy="false">)</mo><msup><mi>e</mi><mrow><mo>−</mo><msup><mi>r</mi><mo>∗</mo></msup><msup><mi>t</mi><mo>∗</mo></msup></mrow></msup></mrow><annotation encoding="application/x-tex">(L + k^*) e^{-r^* t^*}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height: 1em; vertical-align: -0.25em;"></span><span class="mopen">(</span><span class="mord mathdefault">L</span><span class="mspace" style="margin-right: 0.222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right: 0.222222em;"></span></span><span class="base"><span class="strut" style="height: 1.14734em; vertical-align: -0.25em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right: 0.03148em;">k</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height: 0.688696em;"><span class="" style="top: -3.063em; margin-right: 0.05em;"><span class="pstrut" style="height: 2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mbin mtight">∗</span></span></span></span></span></span></span></span><span class="mclose">)</span><span class="mord"><span class="mord mathdefault">e</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height: 0.89734em;"><span class="" style="top: -3.063em; margin-right: 0.05em;"><span class="pstrut" style="height: 2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">−</span><span class="mord mtight"><span class="mord mathdefault mtight" style="margin-right: 0.02778em;">r</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height: 0.763343em;"><span class="" style="top: -2.931em; margin-right: 0.0714286em;"><span class="pstrut" style="height: 2.5em;"></span><span class="sizing reset-size3 size1 mtight"><span class="mbin mtight">∗</span></span></span></span></span></span></span></span><span class="mord mtight"><span class="mord mathdefault mtight">t</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height: 0.763343em;"><span class="" style="top: -2.931em; margin-right: 0.0714286em;"><span class="pstrut" style="height: 2.5em;"></span><span class="sizing reset-size3 size1 mtight"><span class="mbin mtight">∗</span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span> today, where <span class="katex--inline"><span class="katex"><span class="katex-mathml"><math><semantics><mrow><msup><mi>r</mi><mo>∗</mo></msup></mrow><annotation encoding="application/x-tex">r^*</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height: 0.688696em; vertical-align: 0em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right: 0.02778em;">r</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height: 0.688696em;"><span class="" style="top: -3.063em; margin-right: 0.05em;"><span class="pstrut" style="height: 2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mbin mtight">∗</span></span></span></span></span></span></span></span></span></span></span></span> is the LIBOR/swap zero rate for a maturity of <span class="katex--inline"><span class="katex"><span class="katex-mathml"><math><semantics><mrow><msup><mi>t</mi><mo>∗</mo></msup></mrow><annotation encoding="application/x-tex">t^*</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height: 0.688696em; vertical-align: 0em;"></span><span class="mord"><span class="mord mathdefault">t</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height: 0.688696em;"><span class="" style="top: -3.063em; margin-right: 0.05em;"><span class="pstrut" style="height: 2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mbin mtight">∗</span></span></span></span></span></span></span></span></span></span></span></span>.</p>
+<h4 id="valuation-in-terms-of-fras">Valuation in Terms of FRAs</h4>
+<p>A swap can be characterized as a portfolio of forward-rate agreements.</p>
+<p>The first exchange of payments is known at the time the swap is negotiated.<br>
+The other exchanges can be regarded as FRAs.</p>
+<p>An FRA can be valued by assuming that forward interest rates are realized.<br>
+A plain vanilla interest rate swap can be valued using the same assumption.</p>
+<ol>
+<li>Use the LIBOR/swap zero curve to calculate forward rates for each of the LIBOR rates that will determine swap cash flows.</li>
+<li>Calculate swap cash flows on the assumption that the LIBOR rates will equal the forward rates.</li>
+<li>Discount these swap cash flows (using the LIBOR/swap zero curve) to obtain the swap value.</li>
+</ol>
+<h2 id="term-structure-effects">Term Structure Effects</h2>
+<p>A swap is worth close to zero at initiation.</p>
+<p>The sum of the values of the FRAs underlying the swap is close to zero.<br>
+This does not mean the value of each individual FRA is close to zero.</p>
+<p>Suppose the term structure of interest rates is upward-sloping at the time of swap negotiation.<br>
+This means forward interest rates increase as maturity of the FRA increases.<br>
+The value of FRAs corresponding to early payment dates is negative.<br>
+The value of FRAs corresponding to later payment dates is positive.</p>
+<p>Suppose the term structure of interest rates is downward-sloping.<br>
+This means forward interest rates decrease as maturity of the FRA increases.<br>
+The value of FRAs corresponding to early payment dates is positive.<br>
+The value of FRAs corresponding to later payments dates is negative.</p>
+<h2 id="fixed-for-fixed-currency-swaps">Fixed-for-Fixed Currency Swaps</h2>
+<ul>
+<li>exchanging principal and interest payments at a fixed rate in one currency for principal and interest payments at a fixed rate in another currency</li>
+<li>requires principal to be specified in each of the two currencies</li>
+<li>principal amounts are usually exchanged at the beginning and at the end of the swap life<br>
+– usually chosen to be equivalent based on exchange rate at swap initiation<br>
+– values may be different when exchanged at end of life of the swap</li>
+</ul>
+<h4 id="use-of-a-currency-swap-to-transform-liabilities-and-assets">Use of a Currency Swap to Transform Liabilities and Assets</h4>
+<p>This type of swap can be used to transform borrowings in one currency to borrowings in another currency.</p>
+<h4 id="comparative-advantage">Comparative Advantage</h4>
+<p>Currency swaps can be motivated by comparative advantage.<br>
+A possible source of comparative advantage is tax.</p>
+<h2 id="valuation-of-fixed-for-fixed-currency-swaps">Valuation of Fixed-for-Fixed Currency Swaps</h2>
+<p>Fixed-for-fixed currency swaps can be valued either by decomposing into the difference between two bonds or as a portfolio of forward contracts.</p>
+<h4 id="valuation-in-terms-of-bond-prices-1">Valuation in Terms of Bond Prices</h4>
+<p>The value of a swap where dollars are received and a foreign currency is paid is<span class="katex--display"><span class="katex-display"><span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>V</mi><mtext>swap</mtext></msub><mo>=</mo><msub><mi>B</mi><mi>D</mi></msub><mo>−</mo><msub><mi>S</mi><mn>0</mn></msub><msub><mi>B</mi><mi>F</mi></msub></mrow><annotation encoding="application/x-tex">V_\text{swap} = B_D - S_0 B_F</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height: 0.969438em; vertical-align: -0.286108em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right: 0.22222em;">V</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height: 0.151392em;"><span class="" style="top: -2.55em; margin-left: -0.22222em; margin-right: 0.05em;"><span class="pstrut" style="height: 2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord text mtight"><span class="mord mtight">swap</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height: 0.286108em;"><span class=""></span></span></span></span></span></span><span class="mspace" style="margin-right: 0.277778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right: 0.277778em;"></span></span><span class="base"><span class="strut" style="height: 0.83333em; vertical-align: -0.15em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right: 0.05017em;">B</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height: 0.328331em;"><span class="" style="top: -2.55em; margin-left: -0.05017em; margin-right: 0.05em;"><span class="pstrut" style="height: 2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight" style="margin-right: 0.02778em;">D</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height: 0.15em;"><span class=""></span></span></span></span></span></span><span class="mspace" style="margin-right: 0.222222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right: 0.222222em;"></span></span><span class="base"><span class="strut" style="height: 0.83333em; vertical-align: -0.15em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right: 0.05764em;">S</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height: 0.301108em;"><span class="" style="top: -2.55em; margin-left: -0.05764em; margin-right: 0.05em;"><span class="pstrut" style="height: 2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">0</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height: 0.15em;"><span class=""></span></span></span></span></span></span><span class="mord"><span class="mord mathdefault" style="margin-right: 0.05017em;">B</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height: 0.328331em;"><span class="" style="top: -2.55em; margin-left: -0.05017em; margin-right: 0.05em;"><span class="pstrut" style="height: 2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight" style="margin-right: 0.13889em;">F</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height: 0.15em;"><span class=""></span></span></span></span></span></span></span></span></span></span></span></p>
+<p><span class="katex--inline"><span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>B</mi><mi>F</mi></msub></mrow><annotation encoding="application/x-tex">B_F</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height: 0.83333em; vertical-align: -0.15em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right: 0.05017em;">B</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height: 0.328331em;"><span class="" style="top: -2.55em; margin-left: -0.05017em; margin-right: 0.05em;"><span class="pstrut" style="height: 2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight" style="margin-right: 0.13889em;">F</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height: 0.15em;"><span class=""></span></span></span></span></span></span></span></span></span></span> is the value, measured in foreign currency, of the bond defined by foreign cash flows<br>
+<span class="katex--inline"><span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>B</mi><mi>D</mi></msub></mrow><annotation encoding="application/x-tex">B_D</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height: 0.83333em; vertical-align: -0.15em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right: 0.05017em;">B</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height: 0.328331em;"><span class="" style="top: -2.55em; margin-left: -0.05017em; margin-right: 0.05em;"><span class="pstrut" style="height: 2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight" style="margin-right: 0.02778em;">D</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height: 0.15em;"><span class=""></span></span></span></span></span></span></span></span></span></span> is the value of the bond defined by domestic cash flows<br>
+<span class="katex--inline"><span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>S</mi><mn>0</mn></msub></mrow><annotation encoding="application/x-tex">S_0</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height: 0.83333em; vertical-align: -0.15em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right: 0.05764em;">S</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height: 0.301108em;"><span class="" style="top: -2.55em; margin-left: -0.05764em; margin-right: 0.05em;"><span class="pstrut" style="height: 2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">0</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height: 0.15em;"><span class=""></span></span></span></span></span></span></span></span></span></span> is the spot exchange rate (dollars per unit of foreign currency)</p>
+<p>The value of a swap where the foreign currency is received and dollars are paid is <span class="katex--display"><span class="katex-display"><span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>V</mi><mtext>swap</mtext></msub><mo>=</mo><msub><mi>S</mi><mn>0</mn></msub><msub><mi>B</mi><mi>F</mi></msub><mo>−</mo><msub><mi>B</mi><mi>D</mi></msub></mrow><annotation encoding="application/x-tex">V_\text{swap} = S_0 B_F - B_D</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height: 0.969438em; vertical-align: -0.286108em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right: 0.22222em;">V</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height: 0.151392em;"><span class="" style="top: -2.55em; margin-left: -0.22222em; margin-right: 0.05em;"><span class="pstrut" style="height: 2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord text mtight"><span class="mord mtight">swap</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height: 0.286108em;"><span class=""></span></span></span></span></span></span><span class="mspace" style="margin-right: 0.277778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right: 0.277778em;"></span></span><span class="base"><span class="strut" style="height: 0.83333em; vertical-align: -0.15em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right: 0.05764em;">S</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height: 0.301108em;"><span class="" style="top: -2.55em; margin-left: -0.05764em; margin-right: 0.05em;"><span class="pstrut" style="height: 2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">0</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height: 0.15em;"><span class=""></span></span></span></span></span></span><span class="mord"><span class="mord mathdefault" style="margin-right: 0.05017em;">B</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height: 0.328331em;"><span class="" style="top: -2.55em; margin-left: -0.05017em; margin-right: 0.05em;"><span class="pstrut" style="height: 2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight" style="margin-right: 0.13889em;">F</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height: 0.15em;"><span class=""></span></span></span></span></span></span><span class="mspace" style="margin-right: 0.222222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right: 0.222222em;"></span></span><span class="base"><span class="strut" style="height: 0.83333em; vertical-align: -0.15em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right: 0.05017em;">B</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height: 0.328331em;"><span class="" style="top: -2.55em; margin-left: -0.05017em; margin-right: 0.05em;"><span class="pstrut" style="height: 2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight" style="margin-right: 0.02778em;">D</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height: 0.15em;"><span class=""></span></span></span></span></span></span></span></span></span></span></span></p>
+<h4 id="valuation-as-portfolio-of-forward-contracts">Valuation as Portfolio of Forward Contracts</h4>
+<p>Each exchange of payments in a fixed-for-fixed currency swap is a forward foreign exchange contract. Assume that forward exchange rates are realized.</p>
+<p>Value of a currency swap is close to zero at initiation.<br>
+If the two principals are worth the same at the start of the swap, the value of the swap is also close to zero immediately after the initial exchange of principal.<br>
+This does not mean each of the individual forward contracts underlying the swap has a value close to zero.</p>
+<p>Suppose interest rates in two currencies are different.</p>
+<p>From point-of-view of payer of currency with high interest rate:</p>
+<ul>
+<li>forward contracts corresponding to early exchanges have negative value</li>
+<li>forward contracts corresponding to later exchanges have positive value</li>
+</ul>
+<p>From point-of-view of payer of currency with low interest rate:</p>
+<ul>
+<li>forward contracts corresponding to early exchanges have positive value</li>
+<li>forward contracts corresponding to later exchanges have negative value</li>
+</ul>
+<h2 id="other-currency-swaps">Other Currency Swaps</h2>
+<p>Two other popular currency swaps:</p>
+<ol>
+<li>Fixed-for-floating where a floating interest rate in one currency is exchanged for a fixed interest rate in another currency</li>
+<li>Floating-for-floating where a floating interest rate in one currency is exchanged for a floating interest rate in another currency</li>
+</ol>
+<h2 id="credit-risk">Credit Risk</h2>
+<p>Transactions such as swap that are private arrangements between companies entail credit risk.</p>
+<p>Suppose value of swap to a financial institution is positive.</p>
+<ul>
+<li>the financial institution has credit-risk exposure because counterparty can default</li>
+</ul>
+<p>Suppose value of swap to a financial institution is negative.</p>
+<ul>
+<li>there is no effect on the financial institution, based on the assumption the defaulting counterparty will sell the transaction to a third party so its positive value is not lost</li>
+</ul>
+<p>Potential losses from defaults on a swap are less than potential losses from default on a loan.</p>
+<ul>
+<li>swap value is a small fraction of value of the loan</li>
+</ul>
+<p>Potential losses from defaults on a currency swap are greater than potential losses from default on an interest rate swap.</p>
+<ul>
+<li>principal amounts are exchanged in two different currencies at the end of life of a currency swap<br>
+– currency swap is liable to have a greater value at the time of default than an interest rate swap</li>
+</ul>
+<hr>
+<p>Credit risk vs Market risk</p>
+<ul>
+<li>credit risk arises from possibility of default by the counterparty when the value of the contract to the financial institution is positive</li>
+<li>market risk arises from possibility that market variables (interest rates, exchange rates) will move in a way that causes the value of the contract to the financial institution to become negative</li>
+</ul>
+<p>Market risk can be hedged more easily than credit risk.</p>
+<ul>
+<li>enter into offsetting contracts</li>
+</ul>
+<p>Banks trading swaps also bear legal risk.</p>
+<h4 id="central-clearing">Central Clearing</h4>
+<p>Regulators may required standardized OTC derivatives to be cleared through central counterparties (CCPs).</p>
+<ul>
+<li>CCP acts as intermediary between the two sides in a transaction</li>
+<li>requires initial margin and variation margin from both sides</li>
+<li>purpose is to reduce credit risk in OTC markets</li>
+</ul>
+<h4 id="credit-default-swaps">Credit Default Swaps</h4>
+<ul>
+<li>allows companies to hedge credit risks</li>
+<li>insurance contract that pays off if a particular company or country defaults</li>
+</ul>
+<p>The buyer of credit protection pays an insurance premium (<em>CDS spread</em>) to the seller of protection for the life of the contract or until the <em>reference entity</em> defaults.</p>
+<p>The payoff in the event of default would be such that the buyer of protection is made whole.</p>
+<h2 id="other-types-of-swaps">Other Types of Swaps</h2>
+<h4 id="variations-on-the-standard-interest-rate-swap">Variations on the Standard Interest Rate Swap</h4>
+<ul>
+<li>tenor (payment freq) on the floating side does not have to match tenor on the fixed side</li>
+<li>commercial paper (CP) rate instead of LIBOR can be used as floating rate</li>
+<li>basis swap - a floating-floating interest rate swap where the floating rates have different bases (such as commercial paper for one and LIBOR for the other)</li>
+<li>amortizing swap - principal reduces in a predetermined way</li>
+<li>step-up swap - principal increases in a predetermined way</li>
+<li>forward swaps - parties do not begin to exchange payments until some future date</li>
+<li>constant maturity swap - agreement to exchange a LIBOR rate for a swap rate</li>
+<li>constant maturity Treasury swap - agreement to exchange a LIBOR rate for a Treasury rate</li>
+<li>compounding swap - interest on one or both sides is compounded forward to end of life according to predetermined rules and there is only one payment date at the end of life</li>
+<li>LIBOR-in-arrears swap - LIBOR rate observed on a payment date is used to calculate the payment on that date (as opposed to using the LIBOR rate at start of payment period)</li>
+<li>accrual swap - interest on one side accrues only when the floating rate is in a certain range</li>
+</ul>
+<h4 id="diff-swaps">Diff Swaps</h4>
+<p>Sometimes a rate observed in one currency is applied to a principal amount in another currency.<br>
+Ex: 3-month LIBOR observed in the US is exchange for 3-month LIBOR in Britain, with both rates being applied to a principal of 10m British pounds.</p>
+<p>Also known as a <strong>quanto</strong>.</p>
+<h4 id="equity-swaps">Equity Swaps</h4>
+<p>Agreement to exchange the total return (dividends and capital gains) realized on an equity index for either a fixed or a floating rate of interest. Used to convert returns from a fixed or floating investment to the returns from investing in an equity index, and vice versa.</p>
+<h4 id="options">Options</h4>
+<p>There can be options embedded in a swap agreement.</p>
+<ul>
+<li>extendable swap - one party has the option to extend the life of the swap</li>
+<li>puttable swap - one party has the option to terminate the swap early</li>
+</ul>
+<p>swaptions - options on swaps</p>
+<ul>
+<li>provide one party with the right at a future time to enter into a swap where a predetermined fixed rate is exchanged for floating</li>
+</ul>
+<h4 id="commodity-swaps-volatility-swaps-and-other-exotic-instruments">Commodity Swaps, Volatility Swaps, and Other Exotic Instruments</h4>
+<p>commodity swaps - series of forward contracts on a commodity with different maturity dates and the same delivery prices</p>
+<p>volatility swap - series of time periods where at the end of each period, one side pays a predetermined volatility, while the other side pays the historical volatility realized during the period</p>
+<p>Swaps are limited only by the imaginations of financial engineers and the desire of treasurers and fund managers for exotic structures.</p>
+
+    </div>
+  </div>
+</body>
+
+</html>
