@@ -1,0 +1,314 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ch10</title>
+  <link rel="stylesheet" href="https://stackedit.io/style.css" />
+</head>
+
+<body class="stackedit">
+  <div class="stackedit__left">
+    <div class="stackedit__toc">
+      
+<ul>
+<li><a href="#ch-10-mechanics-of-options-markets">Ch 10 Mechanics of Options Markets</a>
+<ul>
+<li><a href="#types-of-options">Types of Options</a>
+<ul>
+<li></li>
+</ul>
+</li>
+<li><a href="#option-positions">Option Positions</a></li>
+<li><a href="#underlying-assets">Underlying Assets</a>
+<ul>
+<li></li>
+</ul>
+</li>
+<li><a href="#specification-of-stock-options">Specification of Stock Options</a>
+<ul>
+<li></li>
+</ul>
+</li>
+<li><a href="#trading">Trading</a>
+<ul>
+<li></li>
+</ul>
+</li>
+<li><a href="#commissions">Commissions</a></li>
+<li><a href="#margin-requirements">Margin Requirements</a>
+<ul>
+<li></li>
+</ul>
+</li>
+<li><a href="#the-options-clearing-corporation">The Options Clearing Corporation</a>
+<ul>
+<li></li>
+</ul>
+</li>
+<li><a href="#regulation">Regulation</a></li>
+<li><a href="#taxation">Taxation</a>
+<ul>
+<li></li>
+</ul>
+</li>
+<li><a href="#warrants-employee-stock-options-and-convertibles">Warrants, Employee Stock Options, and Convertibles</a></li>
+<li><a href="#over-the-counter-options-markets">Over-the-Counter Options Markets</a></li>
+</ul>
+</li>
+</ul>
+
+    </div>
+  </div>
+  <div class="stackedit__right">
+    <div class="stackedit__html">
+      <h1 id="ch-10-mechanics-of-options-markets">Ch 10 Mechanics of Options Markets</h1>
+<p>Options are fundamentally different from forward and futures contracts because it gives the holder the right but not the obligation to do something. The purchase of an option requires an up-front payment, whereas forward and futures contracts cost nothing to enter into.</p>
+<h2 id="types-of-options">Types of Options</h2>
+<p>call option - gives holder right to buy an asset by a certain date for a certain price<br>
+put option - gives holder right to sell an asset by a certain date for a certain price</p>
+<p>expiration date (maturity date) - date specified in the contract<br>
+exercise price (strike price) - price specified in the contract</p>
+<p>American option - can be exercised at any time up to expiration date<br>
+European option - can be exercised only on the expiration date</p>
+<p>Most options traded on exchanges are American.<br>
+European options are generally easier to analyze.</p>
+<h4 id="call-options">Call Options</h4>
+<p>An investor can exercise an option and still make a loss overall when the initial cost of the option is taken into account. The loss would be less than if the option were not exercised at all. In general, call options should always be exercised at expiration if the stock price is above the strike price.</p>
+<h4 id="put-options">Put Options</h4>
+<p>The purchases of a put option is hoping that the stock price will decrease. Put options should be exercised if the stock price is less than the strike price. Otherwise, the put option expires worthless, and the investor losses the initial investment required to purchase the option.</p>
+<h4 id="early-exercise">Early Exercise</h4>
+<p>Exchange-traded stock options are usually American, so investors do not have to wait until expiration to exercise the option. There are circumstances which make early exercise optimal.</p>
+<h2 id="option-positions">Option Positions</h2>
+<p>long position - bought the option<br>
+short position - sold (<em>written</em>) the option</p>
+<ul>
+<li>writer of an option receives cash up front, but has potential liabilities later</li>
+<li>writer’s profit or loss is the reverse of that for the purchaser of the option</li>
+</ul>
+<p>There are four types of option positions:</p>
+<ol>
+<li>Long position in a call option</li>
+<li>Long position in a put option</li>
+<li>Short position in a call option</li>
+<li>Short position in a put option</li>
+</ol>
+<p>Let <span class="katex--inline"><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>K</mi></mrow><annotation encoding="application/x-tex">K</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height: 0.68333em; vertical-align: 0em;"></span><span class="mord mathdefault" style="margin-right: 0.07153em;">K</span></span></span></span></span> be the strike price and <span class="katex--inline"><span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>S</mi><mi>T</mi></msub></mrow><annotation encoding="application/x-tex">S_T</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height: 0.83333em; vertical-align: -0.15em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right: 0.05764em;">S</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height: 0.328331em;"><span class="" style="top: -2.55em; margin-left: -0.05764em; margin-right: 0.05em;"><span class="pstrut" style="height: 2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight" style="margin-right: 0.13889em;">T</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height: 0.15em;"><span class=""></span></span></span></span></span></span></span></span></span></span> be the final price of the underlying asset.</p>
+<p>The payoff from a long position in a European call option is <span class="katex--display"><span class="katex-display"><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>max</mi><mo>⁡</mo><mo stretchy="false">(</mo><msub><mi>S</mi><mi>T</mi></msub><mo>−</mo><mi>K</mi><mo separator="true">,</mo><mn>0</mn><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">\max(S_T - K, 0)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height: 1em; vertical-align: -0.25em;"></span><span class="mop">max</span><span class="mopen">(</span><span class="mord"><span class="mord mathdefault" style="margin-right: 0.05764em;">S</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height: 0.328331em;"><span class="" style="top: -2.55em; margin-left: -0.05764em; margin-right: 0.05em;"><span class="pstrut" style="height: 2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight" style="margin-right: 0.13889em;">T</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height: 0.15em;"><span class=""></span></span></span></span></span></span><span class="mspace" style="margin-right: 0.222222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right: 0.222222em;"></span></span><span class="base"><span class="strut" style="height: 1em; vertical-align: -0.25em;"></span><span class="mord mathdefault" style="margin-right: 0.07153em;">K</span><span class="mpunct">,</span><span class="mspace" style="margin-right: 0.166667em;"></span><span class="mord">0</span><span class="mclose">)</span></span></span></span></span></span></p>
+<p>The payoff from a short position in a European call option is <span class="katex--display"><span class="katex-display"><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo>−</mo><mi>max</mi><mo>⁡</mo><mo stretchy="false">(</mo><msub><mi>S</mi><mi>T</mi></msub><mo>−</mo><mi>K</mi><mo separator="true">,</mo><mn>0</mn><mo stretchy="false">)</mo><mo>=</mo><mi>min</mi><mo>⁡</mo><mo stretchy="false">(</mo><mi>K</mi><mo>−</mo><msub><mi>S</mi><mi>T</mi></msub><mo separator="true">,</mo><mn>0</mn><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">-\max(S_T - K, 0) = \min(K - S_T, 0)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height: 1em; vertical-align: -0.25em;"></span><span class="mord">−</span><span class="mspace" style="margin-right: 0.166667em;"></span><span class="mop">max</span><span class="mopen">(</span><span class="mord"><span class="mord mathdefault" style="margin-right: 0.05764em;">S</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height: 0.328331em;"><span class="" style="top: -2.55em; margin-left: -0.05764em; margin-right: 0.05em;"><span class="pstrut" style="height: 2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight" style="margin-right: 0.13889em;">T</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height: 0.15em;"><span class=""></span></span></span></span></span></span><span class="mspace" style="margin-right: 0.222222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right: 0.222222em;"></span></span><span class="base"><span class="strut" style="height: 1em; vertical-align: -0.25em;"></span><span class="mord mathdefault" style="margin-right: 0.07153em;">K</span><span class="mpunct">,</span><span class="mspace" style="margin-right: 0.166667em;"></span><span class="mord">0</span><span class="mclose">)</span><span class="mspace" style="margin-right: 0.277778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right: 0.277778em;"></span></span><span class="base"><span class="strut" style="height: 1em; vertical-align: -0.25em;"></span><span class="mop">min</span><span class="mopen">(</span><span class="mord mathdefault" style="margin-right: 0.07153em;">K</span><span class="mspace" style="margin-right: 0.222222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right: 0.222222em;"></span></span><span class="base"><span class="strut" style="height: 1em; vertical-align: -0.25em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right: 0.05764em;">S</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height: 0.328331em;"><span class="" style="top: -2.55em; margin-left: -0.05764em; margin-right: 0.05em;"><span class="pstrut" style="height: 2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight" style="margin-right: 0.13889em;">T</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height: 0.15em;"><span class=""></span></span></span></span></span></span><span class="mpunct">,</span><span class="mspace" style="margin-right: 0.166667em;"></span><span class="mord">0</span><span class="mclose">)</span></span></span></span></span></span></p>
+<p>The payoff from a long position in a European put option is <span class="katex--display"><span class="katex-display"><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>max</mi><mo>⁡</mo><mo stretchy="false">(</mo><mi>K</mi><mo>−</mo><msub><mi>S</mi><mi>T</mi></msub><mo separator="true">,</mo><mn>0</mn><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">\max(K - S_T, 0)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height: 1em; vertical-align: -0.25em;"></span><span class="mop">max</span><span class="mopen">(</span><span class="mord mathdefault" style="margin-right: 0.07153em;">K</span><span class="mspace" style="margin-right: 0.222222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right: 0.222222em;"></span></span><span class="base"><span class="strut" style="height: 1em; vertical-align: -0.25em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right: 0.05764em;">S</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height: 0.328331em;"><span class="" style="top: -2.55em; margin-left: -0.05764em; margin-right: 0.05em;"><span class="pstrut" style="height: 2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight" style="margin-right: 0.13889em;">T</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height: 0.15em;"><span class=""></span></span></span></span></span></span><span class="mpunct">,</span><span class="mspace" style="margin-right: 0.166667em;"></span><span class="mord">0</span><span class="mclose">)</span></span></span></span></span></span></p>
+<p>The payoff from a short position in a European put option is <span class="katex--display"><span class="katex-display"><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo>−</mo><mi>max</mi><mo>⁡</mo><mo stretchy="false">(</mo><mi>K</mi><mo>−</mo><msub><mi>S</mi><mi>T</mi></msub><mo separator="true">,</mo><mn>0</mn><mo stretchy="false">)</mo><mo>=</mo><mi>min</mi><mo>⁡</mo><mo stretchy="false">(</mo><msub><mi>S</mi><mi>T</mi></msub><mo>−</mo><mi>K</mi><mo separator="true">,</mo><mn>0</mn><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">-\max(K - S_T, 0) = \min(S_T - K, 0)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height: 1em; vertical-align: -0.25em;"></span><span class="mord">−</span><span class="mspace" style="margin-right: 0.166667em;"></span><span class="mop">max</span><span class="mopen">(</span><span class="mord mathdefault" style="margin-right: 0.07153em;">K</span><span class="mspace" style="margin-right: 0.222222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right: 0.222222em;"></span></span><span class="base"><span class="strut" style="height: 1em; vertical-align: -0.25em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right: 0.05764em;">S</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height: 0.328331em;"><span class="" style="top: -2.55em; margin-left: -0.05764em; margin-right: 0.05em;"><span class="pstrut" style="height: 2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight" style="margin-right: 0.13889em;">T</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height: 0.15em;"><span class=""></span></span></span></span></span></span><span class="mpunct">,</span><span class="mspace" style="margin-right: 0.166667em;"></span><span class="mord">0</span><span class="mclose">)</span><span class="mspace" style="margin-right: 0.277778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right: 0.277778em;"></span></span><span class="base"><span class="strut" style="height: 1em; vertical-align: -0.25em;"></span><span class="mop">min</span><span class="mopen">(</span><span class="mord"><span class="mord mathdefault" style="margin-right: 0.05764em;">S</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height: 0.328331em;"><span class="" style="top: -2.55em; margin-left: -0.05764em; margin-right: 0.05em;"><span class="pstrut" style="height: 2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight" style="margin-right: 0.13889em;">T</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height: 0.15em;"><span class=""></span></span></span></span></span></span><span class="mspace" style="margin-right: 0.222222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right: 0.222222em;"></span></span><span class="base"><span class="strut" style="height: 1em; vertical-align: -0.25em;"></span><span class="mord mathdefault" style="margin-right: 0.07153em;">K</span><span class="mpunct">,</span><span class="mspace" style="margin-right: 0.166667em;"></span><span class="mord">0</span><span class="mclose">)</span></span></span></span></span></span></p>
+<h2 id="underlying-assets">Underlying Assets</h2>
+<h4 id="stock-options">Stock Options</h4>
+<p>Most trading in stock options is on exchanges. Options trade on several thousand different stocks. One contract gives the holder the right to buy or sell 100 shares at the specified strike price.</p>
+<h4 id="foreign-currency-options">Foreign Currency Options</h4>
+<p>Most currency options trading is OTC, but there is some exchange trading.</p>
+<h4 id="index-options">Index Options</h4>
+<p>Many different index options trade in both OTC markets and exchange-traded markets. One contract is usually to buy or sell 100 times the index at the specified strike price. Settlement is always in cash, rather than by delivering the portfolio underlying the index.</p>
+<h4 id="futures-options">Futures Options</h4>
+<p>An exchange that trades a particular futures contract also often trades American options on that contract. The life of a futures option normally ends shortly before the expiration of trading in the underlying futures contract. When a call option is exercised, the holder’s gain is the excess of the futures price over the strike price. When a put option is exercised, the holder’s gain is the excess of the strike price over the futures price.</p>
+<h2 id="specification-of-stock-options">Specification of Stock Options</h2>
+<p>A standard exchange-traded stock option in the US is an American-style option contract to buy or sell 100 shares of a stock.</p>
+<h4 id="expiration-dates">Expiration Dates</h4>
+<p>Expiration date is an item used to describe a stock option.<br>
+When one option reaches expiration, trading in another is started.</p>
+<h4 id="strike-prices">Strike Prices</h4>
+<p>Strike prices are usually spaced $2.50, $5, or $10 apart.<br>
+Stock splits and stock dividends can lead to nonstandard strike prices.</p>
+<h4 id="terminology">Terminology</h4>
+<p>option class - all options of the same types (calls or puts) on a stock<br>
+option series - all options of a given class with the same expiration date and strike price</p>
+<p>Let <span class="katex--inline"><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>S</mi></mrow><annotation encoding="application/x-tex">S</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height: 0.68333em; vertical-align: 0em;"></span><span class="mord mathdefault" style="margin-right: 0.05764em;">S</span></span></span></span></span> be the stock price and <span class="katex--inline"><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>K</mi></mrow><annotation encoding="application/x-tex">K</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height: 0.68333em; vertical-align: 0em;"></span><span class="mord mathdefault" style="margin-right: 0.07153em;">K</span></span></span></span></span> be the strike price.</p>
+<p><em>In the money</em></p>
+<ul>
+<li>a call option is in the money when <span class="katex--inline"><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>S</mi><mo>&gt;</mo><mi>K</mi></mrow><annotation encoding="application/x-tex">S &gt; K</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height: 0.72243em; vertical-align: -0.0391em;"></span><span class="mord mathdefault" style="margin-right: 0.05764em;">S</span><span class="mspace" style="margin-right: 0.277778em;"></span><span class="mrel">&gt;</span><span class="mspace" style="margin-right: 0.277778em;"></span></span><span class="base"><span class="strut" style="height: 0.68333em; vertical-align: 0em;"></span><span class="mord mathdefault" style="margin-right: 0.07153em;">K</span></span></span></span></span></li>
+<li>a put option is in the money when <span class="katex--inline"><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>S</mi><mo>&lt;</mo><mi>K</mi></mrow><annotation encoding="application/x-tex">S &lt; K</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height: 0.72243em; vertical-align: -0.0391em;"></span><span class="mord mathdefault" style="margin-right: 0.05764em;">S</span><span class="mspace" style="margin-right: 0.277778em;"></span><span class="mrel">&lt;</span><span class="mspace" style="margin-right: 0.277778em;"></span></span><span class="base"><span class="strut" style="height: 0.68333em; vertical-align: 0em;"></span><span class="mord mathdefault" style="margin-right: 0.07153em;">K</span></span></span></span></span></li>
+</ul>
+<p><em>At the money</em></p>
+<ul>
+<li>a call option is at the money when <span class="katex--inline"><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>S</mi><mo>=</mo><mi>K</mi></mrow><annotation encoding="application/x-tex">S = K</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height: 0.68333em; vertical-align: 0em;"></span><span class="mord mathdefault" style="margin-right: 0.05764em;">S</span><span class="mspace" style="margin-right: 0.277778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right: 0.277778em;"></span></span><span class="base"><span class="strut" style="height: 0.68333em; vertical-align: 0em;"></span><span class="mord mathdefault" style="margin-right: 0.07153em;">K</span></span></span></span></span></li>
+<li>a put option is at the money when <span class="katex--inline"><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>S</mi><mo>=</mo><mi>K</mi></mrow><annotation encoding="application/x-tex">S = K</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height: 0.68333em; vertical-align: 0em;"></span><span class="mord mathdefault" style="margin-right: 0.05764em;">S</span><span class="mspace" style="margin-right: 0.277778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right: 0.277778em;"></span></span><span class="base"><span class="strut" style="height: 0.68333em; vertical-align: 0em;"></span><span class="mord mathdefault" style="margin-right: 0.07153em;">K</span></span></span></span></span></li>
+</ul>
+<p><em>Out of the money</em></p>
+<ul>
+<li>a call option is out of the money when <span class="katex--inline"><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>S</mi><mo>&lt;</mo><mi>K</mi></mrow><annotation encoding="application/x-tex">S &lt; K</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height: 0.72243em; vertical-align: -0.0391em;"></span><span class="mord mathdefault" style="margin-right: 0.05764em;">S</span><span class="mspace" style="margin-right: 0.277778em;"></span><span class="mrel">&lt;</span><span class="mspace" style="margin-right: 0.277778em;"></span></span><span class="base"><span class="strut" style="height: 0.68333em; vertical-align: 0em;"></span><span class="mord mathdefault" style="margin-right: 0.07153em;">K</span></span></span></span></span></li>
+<li>a put option is out of the money when <span class="katex--inline"><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>S</mi><mo>&gt;</mo><mi>K</mi></mrow><annotation encoding="application/x-tex">S &gt; K</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height: 0.72243em; vertical-align: -0.0391em;"></span><span class="mord mathdefault" style="margin-right: 0.05764em;">S</span><span class="mspace" style="margin-right: 0.277778em;"></span><span class="mrel">&gt;</span><span class="mspace" style="margin-right: 0.277778em;"></span></span><span class="base"><span class="strut" style="height: 0.68333em; vertical-align: 0em;"></span><span class="mord mathdefault" style="margin-right: 0.07153em;">K</span></span></span></span></span></li>
+</ul>
+<p>An option will only be exercised when it is in the money. In absence of transaction costs, an option that is in the money will always be exercised on the expiration date if it has not been exercised previously.</p>
+<hr>
+<p>intrinsic value - value option would have if there were no time to maturity</p>
+<ul>
+<li>for a call option, the intrinsic value is <span class="katex--inline"><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>max</mi><mo>⁡</mo><mo stretchy="false">(</mo><mi>S</mi><mo>−</mo><mi>K</mi><mo separator="true">,</mo><mn>0</mn><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">\max(S-K, 0)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height: 1em; vertical-align: -0.25em;"></span><span class="mop">max</span><span class="mopen">(</span><span class="mord mathdefault" style="margin-right: 0.05764em;">S</span><span class="mspace" style="margin-right: 0.222222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right: 0.222222em;"></span></span><span class="base"><span class="strut" style="height: 1em; vertical-align: -0.25em;"></span><span class="mord mathdefault" style="margin-right: 0.07153em;">K</span><span class="mpunct">,</span><span class="mspace" style="margin-right: 0.166667em;"></span><span class="mord">0</span><span class="mclose">)</span></span></span></span></span></li>
+<li>for a put option, the intrinsic value is <span class="katex--inline"><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>max</mi><mo>⁡</mo><mo stretchy="false">(</mo><mi>K</mi><mo>−</mo><mi>S</mi><mo separator="true">,</mo><mn>0</mn><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">\max(K-S, 0)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height: 1em; vertical-align: -0.25em;"></span><span class="mop">max</span><span class="mopen">(</span><span class="mord mathdefault" style="margin-right: 0.07153em;">K</span><span class="mspace" style="margin-right: 0.222222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right: 0.222222em;"></span></span><span class="base"><span class="strut" style="height: 1em; vertical-align: -0.25em;"></span><span class="mord mathdefault" style="margin-right: 0.05764em;">S</span><span class="mpunct">,</span><span class="mspace" style="margin-right: 0.166667em;"></span><span class="mord">0</span><span class="mclose">)</span></span></span></span></span></li>
+</ul>
+<p>It may be optimal for the holder of an in-the-money American option to wait to exercise.<br>
+This is because the option has <em>time value</em>.</p>
+<p>The total value of an option is the sum of its intrinsic value and its time value.</p>
+<h4 id="flex-options">FLEX Options</h4>
+<p>FLEX (flexible) options - options where traders agree to nonstandard terms</p>
+<ul>
+<li>strike price different from what is usually offered by the exchange</li>
+<li>expiration date different from what is usually offered by the exchange</li>
+<li>European option instead of American option</li>
+</ul>
+<p>The purpose of FLEX options is for exchanges to regain business from OTC markets.</p>
+<h4 id="other-nonstandard-products">Other Nonstandard Products</h4>
+<ol>
+<li>Options on exchange-traded funds (ETFs)</li>
+<li>Weeklys - options that are created on a Thursday and expire on Friday the following week</li>
+<li>Binary options - options that provide a fixed payoff if the strike price is reached</li>
+<li>Credit event binary options - options that provide a fixed payoff if a “credit event” occurs</li>
+<li>DOOM options - deep-out-of-the-money put options</li>
+</ol>
+<h4 id="dividends-and-stock-splits">Dividends and Stock Splits</h4>
+<p>Cash Dividends</p>
+<ul>
+<li>early OTC options were dividend protected</li>
+<li>strike price was reduced on ex-dividend day by amount of dividend for cash dividends</li>
+<li>exchange-traded options are not adjusted for cash dividends</li>
+</ul>
+<p>Stock Splits</p>
+<ul>
+<li>exchange-traded options are adjusted for stock splits</li>
+<li>strike price reduced to <span class="katex--inline"><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>m</mi><mi mathvariant="normal">/</mi><mi>n</mi></mrow><annotation encoding="application/x-tex">m/n</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height: 1em; vertical-align: -0.25em;"></span><span class="mord mathdefault">m</span><span class="mord">/</span><span class="mord mathdefault">n</span></span></span></span></span> of previous value for an <span class="katex--inline"><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>n</mi></mrow><annotation encoding="application/x-tex">n</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height: 0.43056em; vertical-align: 0em;"></span><span class="mord mathdefault">n</span></span></span></span></span>-for-<span class="katex--inline"><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>m</mi></mrow><annotation encoding="application/x-tex">m</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height: 0.43056em; vertical-align: 0em;"></span><span class="mord mathdefault">m</span></span></span></span></span> stock split</li>
+<li>number of shares covered by one contract increased to <span class="katex--inline"><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>n</mi><mi mathvariant="normal">/</mi><mi>m</mi></mrow><annotation encoding="application/x-tex">n/m</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height: 1em; vertical-align: -0.25em;"></span><span class="mord mathdefault">n</span><span class="mord">/</span><span class="mord mathdefault">m</span></span></span></span></span> of previous value</li>
+</ul>
+<p>Stock Dividends</p>
+<ul>
+<li>stock options are adjusted for stock dividends</li>
+<li>20% stock dividend has the same effect as a 6-for-5 stock split</li>
+<li>terms of an option are adjusted the same way as they are for a stock split</li>
+</ul>
+<h4 id="position-limits-and-exercise-limits">Position Limits and Exercise Limits</h4>
+<p>position limit - max number of option contracts that an investor can hold on one side of market</p>
+<ul>
+<li>long calls and short puts are on the same side of the market</li>
+<li>short calls and long puts are on the same side of the market</li>
+</ul>
+<p>exercise limit - max number of contracts that can be exercised by an individual in a period of five consecutive business days</p>
+<ul>
+<li>usually equals the position limit</li>
+</ul>
+<p>Purpose of the limits is to prevent the market from being influenced by the activities of an individual investor or group of investors. Whether they are necessary is a controversial issue.</p>
+<h2 id="trading">Trading</h2>
+<h4 id="market-makers">Market Makers</h4>
+<p>A market maker for a certain option quotes both a bid and an offer price on the option.</p>
+<ul>
+<li>bid - price at which market maker is prepared to buy</li>
+<li>offer - price at which market maker is prepared to sell</li>
+</ul>
+<p>Offer is always higher than bid and the difference is the <strong>bid-offer spread</strong>.</p>
+<p>Existence of market maker ensures that buy and sell orders can always be executed at some price without any delays. Market makers add liquidity to the market and profit from the bid-offer spread.</p>
+<h4 id="offsetting-orders">Offsetting Orders</h4>
+<p>Investor who has purchased options can close the position by issuing an offsetting order to sell the same number of options.</p>
+<p>Investor who has written options can close the position by issuing an offsetting order to buy the same number of options.</p>
+<p>If a traded option contract is not closing an existing position, the open interest increases by one contract.</p>
+<p>If one investor is closing an existing position and the other is not, the open interest stays the same.</p>
+<p>If both investors are closing existing positions, the open interest goes down by one contract.</p>
+<h2 id="commissions">Commissions</h2>
+<p>Commissions vary from broker to broker. Discount brokers charge lower commissions than full-service brokers. The charge is often a fixed cost plus a proportion of the amount of the trade.</p>
+<p>If a position is closed by entering into an offsetting trade, the commission must be paid again.<br>
+If option is exercised, the commission is the same as if investor placed an order to buy/sell the underlying stock.</p>
+<p>A hidden cost is the market maker’s bid-offer spread. If bid price is $4.00 and offer price is $4.50, then the “fair” price is halfway at $4.25. The cost to the buyer and seller of the market maker system is the difference between the fair price and the price paid, which is $0.25 per option, or $25 per contract.</p>
+<h2 id="margin-requirements">Margin Requirements</h2>
+<p>buying on margin - investor can borrow up to 50% of the price from the broker</p>
+<ul>
+<li>if share price declines so the loan is much more than 50%, there is a “margin call”</li>
+<li>if margin call is not met, the broker sells the stock</li>
+</ul>
+<p>Call and put options with maturities less than 9 months cannot be bought on margin.</p>
+<ul>
+<li>option price must be paid in full</li>
+<li>because options already contain substantial leverage</li>
+<li>buying on margin would raise this leverage to an unacceptable level</li>
+</ul>
+<p>Options with maturities greater than 9 months can be bought on margin up to 25% of value.</p>
+<p>A trader writing options is required to maintain funds in a margin account.</p>
+<ul>
+<li>trader’s broker and the exchange want to be satisfied the trader will not default</li>
+<li>amount of margin depends on trader’s position</li>
+</ul>
+<h4 id="writing-naked-options">Writing Naked Options</h4>
+<p>naked option - option that is not combined with an offsetting position in the underlying stock</p>
+<p>The initial and maintenance margin required for writing a naked call is the greater of:</p>
+<ol>
+<li>A total of 100% of the proceeds of the sale plus 20% of the underlying share price less the amount by which the option is out of the money.</li>
+<li>A total of 100% of the option proceeds plus 10% of the <em>underlying share price</em>.</li>
+</ol>
+<p>The initial and maintenance margin required for writing a naked put is the greater of:</p>
+<ol>
+<li>A total of 100% of the proceeds of the sale plus 20% of the underlying share price less the amount by which the option is out of the money.</li>
+<li>A total of 100% of the option proceeds plus 10% of the <em>exercise price</em>.</li>
+</ol>
+<p>Replace the 20% with 15% for options on a stock index, which is less volatile than a single stock.</p>
+<p>The calculations are repeated daily, with current market price replacing proceeds of the sale.</p>
+<ul>
+<li>funds can be withdrawn if margin account balance exceeds requirement</li>
+<li>margin call is made when margin account balance is insufficient</li>
+</ul>
+<h4 id="other-rules">Other Rules</h4>
+<p>Different option trading strategies have special rules for determining margin requirements.<br>
+For example, no margin is required for writing a covered call.</p>
+<h2 id="the-options-clearing-corporation">The Options Clearing Corporation</h2>
+<ul>
+<li>guarantees option writers fulfill their obligations under terms of option contracts</li>
+<li>keeps record of all long and short positions</li>
+<li>members must maintain a minimum amount of capital and contribute to a default fund</li>
+</ul>
+<h4 id="exercising-an-option">Exercising an Option</h4>
+<ol>
+<li>Investor instructs broker to exercise an option.</li>
+<li>Broker notifies OCC members that clears its trades.</li>
+<li>Member places an exercise order with the OCC.</li>
+<li>OCC randomly selects a member with an outstanding short position in the option.</li>
+<li>That member selects (<em>assigns</em>) a particular investor who has written the option.</li>
+</ol>
+<p>When an option is exercised, open interest goes down by one.</p>
+<p>Some brokers automatically exercise options for a client at expiration if it is in the client’s interest to do so (usually when in-the-money and transaction costs are not too high).</p>
+<h2 id="regulation">Regulation</h2>
+<ul>
+<li>both exchange and OCC have rules governing the behavior of traders</li>
+<li>there are federal and state regulatory authorities</li>
+<li>SEC is responsible for regulating options markets in stocks, stock indices, currencies, and bonds at the federal level</li>
+</ul>
+<h2 id="taxation">Taxation</h2>
+<ul>
+<li>gains and losses from trading stock options are taxed as capital gains or losses</li>
+</ul>
+<p>A gain or loss is recognized when either</p>
+<ul>
+<li>option expires unexercised</li>
+<li>option position is closed out</li>
+</ul>
+<p>If option is exercised, the gain or loss is rolled into the position taken in the stock.<br>
+It is recognized when the stock position is closed out.</p>
+<h4 id="wash-sale-rule">Wash Sale Rule</h4>
+<p>When repurchase is within 30 days of the sale, any loss on the sale is not tax-deductible.<br>
+Also applies to options or similar contracts to acquire the stock.</p>
+<h4 id="constructive-sales">Constructive Sales</h4>
+<p>Options can be used to minimize tax costs or maximize tax benefits. Tax authorities have proposed legislation to combat the use of derivatives for tax purposes.</p>
+<h2 id="warrants-employee-stock-options-and-convertibles">Warrants, Employee Stock Options, and Convertibles</h2>
+<p>warrants - options issued by a financial institution or nonfinancial corporation</p>
+<p>employee stock options - call options issued to employees by their company</p>
+<p>convertibles - bonds issued by a company that can be converted into equity</p>
+<p>These are different from exchange-traded options in two ways:</p>
+<ol>
+<li>There is a predetermined number of options that are issued.</li>
+<li>When they are exercised, the company issues more shares of its own stock and sells them to the option holder for the strike price. So exercising leads to an increase in the number of outstanding shares of the company’s stock.</li>
+</ol>
+<h2 id="over-the-counter-options-markets">Over-the-Counter Options Markets</h2>
+<p>The OTC options market is larger than the exchange-traded options market.<br>
+The main participants are financial institutions, corporate treasurers, and fund managers.</p>
+<p>OTC options on foreign exchange and interest rates are particularly popular.</p>
+<p>The chief disadvantage of the OTC market is the option writer may default (credit risk).<br>
+Market participants often require counterparties to post collateral.</p>
+<p>Instruments in OTC market are often structured by financial institutions to meet client needs.<br>
+This can involve choosing exercise dates, strike prices, and contract sizes different from those offered by the exchange.<br>
+In some cases the structure of the option is different from standard calls and puts, which is referred to as an <strong>exotic option</strong>.</p>
+
+    </div>
+  </div>
+</body>
+
+</html>
